@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الكاشير</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/cashier.css" />
+</head>
+<body>
+
+  <!-- الهيدر -->
+  <header class="main-header">
+    <div class="header-left">
+      <img src="img/placeholder-logo.png" alt="شعار السنتر" />
+      <span id="center-name">اسم السنتر</span>
+    </div>
+    <div class="header-right">
+      <button id="demo-mode-btn" class="demo-mode-btn" title="تفعيل الوضع التجريبي">الوضع التجريبي</button>
+
+      <button id="logout-btn">تسجيل الخروج</button>
+    </div>
+  </header>
+
+  <!-- القائمة الجانبية -->
+  <aside class="sidebar">
+    <ul>
+      <li data-link="dashboard.html"><a href="dashboard.html"><span class="sidebar-icon">🏠</span><span>لوحة التحكم</span></a></li>
+      <li class="active" data-link="cashier.html"><a href="cashier.html"><span class="sidebar-icon">💵</span><span>الكاشير</span></a></li>
+      <li data-link="invoices.html"><a href="invoices.html"><span class="sidebar-icon">🧾</span><span>الطلاب المشتركين</span></a></li>
+      <li><a href="unsubscribed_students.html"><span class="sidebar-icon">🧍‍♂️</span><span>فواتير فردية</span></a></li>
+            <li data-link="late_students.html"><a href="late_students.html"><span class="sidebar-icon">⏰</span><span>الطلاب المتأخرين في الدفع</span></a></li>
+
+      <li data-link="subscriptions.html"><a href="subscriptions.html"><span class="sidebar-icon">💳</span><span>الاشتراكات والأسعار</span></a></li>
+      <li data-link="users.html"><a href="users.html"><span class="sidebar-icon">👤</span><span>إدارة المستخدمين</span></a></li>
+      <li data-link="reports.html"><a href="reports.html"><span class="sidebar-icon">📊</span><span>التقارير</span></a></li>
+      <li data-link="expenses.html"><a href="expenses.html"><span class="sidebar-icon">💸</span><span>المصروفات</span></a></li>
+      <li data-link="settings.html"><a href="settings.html"><span class="sidebar-icon">⚙️</span><span>الإعدادات</span></a></li>
+      <li data-link="help.html"><a href="help.html"><span class="sidebar-icon">❓</span><span>دليل المساعدة</span></a></li>
+    </ul>
+  </aside>
+
+  <!-- التابات السفلية للموبايل -->
+  <nav class="mobile-tabs" style="display:none">
+    <button class="tab-btn" data-link="dashboard.html">🏠<div class="tab-label">لوحة التحكم</div></button>
+    <button class="tab-btn active" data-link="cashier.html">💵<div class="tab-label">الكاشير</div></button>
+    <button class="tab-btn" data-link="invoices.html">🧾<div class="tab-label">الطلاب المشتركين</div></button>
+    <button class="tab-btn" data-link="unsubscribed_students.html">🧍‍♂️<div class="tab-label">فواتير فردية</div></button>
+    <button class="tab-btn" data-link="subscriptions.html">💳<div class="tab-label">الاشتراكات</div></button>
+    <button class="tab-btn" data-link="users.html">👤<div class="tab-label">المستخدمين</div></button>
+    <button class="tab-btn" data-link="reports.html">📊<div class="tab-label">التقارير</div></button>
+    <button class="tab-btn" data-link="expenses.html">💸<div class="tab-label">المصروفات</div></button>
+    <button class="tab-btn" data-link="settings.html">⚙️<div class="tab-label">الإعدادات</div></button>
+    <button class="tab-btn" data-link="help.html">❓<div class="tab-label">مساعدة</div></button>
+  </nav>
+
+  <!-- المحتوى -->
+  <main class="cashier-container" style="margin-right:220px;">
+    <div class="cashier-top-group">
+      <section class="grades-section">
+        <div class="grade-btn" data-grade="أولى">أولى</div>
+        <div class="grade-btn" data-grade="ثانية">ثانية</div>
+        <div class="grade-btn" data-grade="ثالثة">ثالثة</div>
+        <div class="grade-btn" data-grade="رابعة">رابعة</div>
+      </section>
+
+      <section class="subscriptions-section" id="subs-section" style="display:none;">
+        <div class="sub-btn" data-type="اشتراك كورسات">اشتراك كورسات</div>
+        <div class="sub-btn" data-type="اشتراك ملازم">اشتراك ملازم</div>
+        <div class="sub-btn" data-type="محاضرات فردية">محاضرات فردية</div>
+        <div class="sub-btn" data-type="ملازم فردية">ملازم فردية</div>
+      </section>
+      <div id="items-container">
+        <table id="items-table" style="width:100%; display:none;">
+          <thead>
+            <tr>
+              <th>اسم العنصر</th>
+              <th>السعر</th>
+              <th>إجراء</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="items-placeholder"><td colspan="3" style="color:#888;">اختر الفرقة والنوع لعرض العناصر</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="cashier-flex-row">
+      <section class="form-section">
+        <form id="invoice-form">
+          <div class="form-fields-group">
+            <div class="form-group" id="student-group">
+              <input type="text" placeholder="اسم الطالب" id="student-name" name="student" />
+            </div>
+            <div class="form-group" id="phone-group">
+              <input type="tel" placeholder="رقم الهاتف" id="phone" name="phone" />
+            </div>
+            <input type="text" id="grade" name="grade" readonly placeholder="الفرقة" />
+            <select id="study-type" name="studyType">
+              <option disabled selected>انتظام / انتساب</option>
+              <option value="انتظام">انتظام</option>
+              <option value="انتساب">انتساب</option>
+            </select>
+            <input type="text" id="sub-type" name="subType" readonly placeholder="نوع الاشتراك" />
+          </div>
+          <div id="selected-items-box">
+            <b style="color:#0077aa;">العناصر المختارة:</b>
+            <span id="selected-items-list"></span>
+          </div>
+          <div class="payment-methods">
+            <label>طريقة الدفع:</label>
+            <select id="payment-method" name="paymentMethod">
+              <option value="نقدي">نقدي</option>
+              <option value="فودافون كاش">فودافون كاش</option>
+              <option value="تقسيط">تقسيط</option>
+            </select>
+          </div>
+          <div id="installment-fields" style="display:none; margin:10px 0 0 0;">
+            <label style="display:block;margin-bottom:4px;color:#1976d2;font-weight:bold;">بيانات التقسيط:</label>
+            <input type="number" id="installment-total" name="installmentTotal" placeholder="إجمالي المبلغ (جنيه)" min="0" style="margin-bottom:6px;" />
+            <input type="number" id="installment-paid" name="installmentPaid" placeholder="المبلغ المدفوع (جنيه)" min="0" style="margin-bottom:6px;" />
+            <input type="number" id="installment-remaining" name="installmentRemaining" placeholder="المبلغ المتبقي (جنيه)" min="0" style="margin-bottom:6px;" readonly />
+          </div>
+          <textarea id="notes" name="notes" placeholder="ملاحظات الدفع / التقسيط"></textarea>
+          <div class="action-buttons">
+            <button type="submit">حفظ الفاتورة</button>
+            <button type="button" id="print-btn">طباعة</button>
+          </div>
+        </form>
+      </section>
+      <aside class="invoice-preview" id="preview-box">
+        <!-- سيتم توليد معاينة الفاتورة هنا بشكل عصري وتفاعلي -->
+      </aside>
+    </div>
+  </main>
+
+  <footer style="text-align:center;font-size:13px;color:#1976d2;margin:30px 0 10px 0;font-family:Arial, sans-serif; font-weight:bold; letter-spacing:1px;"><b>Powered by Eng. Lol</b></footer>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/cashier.js"></script>
+  <script>
+    document.querySelectorAll('.sidebar ul li').forEach(li => {
+      li.addEventListener('click', function(e) {
+        window.location.href = li.getAttribute('data-link');
+      });
+    });
+
+    // إظهار التابات في وضع الهاتف فقط
+    function handleMobileTabs() {
+      const tabs = document.querySelector('.mobile-tabs');
+      if(window.innerWidth <= 900) {
+        tabs && (tabs.style.display = 'flex');
+      } else {
+        tabs && (tabs.style.display = 'none');
+      }
+    }
+    window.addEventListener('resize', handleMobileTabs);
+    window.addEventListener('DOMContentLoaded', handleMobileTabs);
+    // التنقل بين الصفحات
+    if(document.querySelector('.mobile-tabs')) {
+      document.querySelectorAll('.mobile-tabs .tab-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          window.location.href = btn.getAttribute('data-link');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

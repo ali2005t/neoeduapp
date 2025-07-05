@@ -1,0 +1,141 @@
+/* late_students.css - تصميم خاص بصفحة الطلاب المتأخرين في الدفع */
+
+.late-students-content {
+  margin-right: 220px;
+  padding: 40px 30px 30px 30px;
+  min-height: 100vh;
+  margin-top: 92px !important;
+  background: #f7fbff;
+}
+
+.late-students-report {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px #ffcdd244;
+  padding: 32px 18px 18px 18px;
+  margin-bottom: 32px;
+}
+
+.late-students-report h2, .late-students-report h3 {
+  color: #e53935;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+#late-students-table-box {
+  overflow-x: auto;
+}
+
+#late-students-table-box table {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  direction: rtl;
+  table-layout: auto;
+  max-width: unset;
+  padding-right: 0;
+  margin: 30px 0 0 0;
+}
+
+.late-students-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(90deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #00eaff44;
+  font-size: 16px;
+  text-align: right;
+}
+
+.late-students-table tbody td {
+  background: #fff;
+  color: #222;
+  font-size: 16px;
+  border-bottom: 1px solid #e3eaf2;
+  text-align: right;
+}
+
+#late-students-table-box td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3eaf2;
+  text-align: right;
+  font-size: 16px;
+  word-break: break-word;
+  background: #fff;
+  color: #222;
+}
+
+#late-students-table-box tr:last-child td {
+  border-bottom: none;
+}
+
+.late-students-table tbody tr:nth-child(even) td {
+  background: #f3f8ff;
+}
+
+.late-students-table tbody tr:hover td {
+  background: #e3f2fd;
+}
+
+.modal-bg {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.25);
+  z-index: 1000;
+}
+
+.modal-box {
+  position: fixed;
+  top: 50%; right: 50%;
+  transform: translate(50%,-50%);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #1976d244;
+  padding: 32px 24px 18px 24px;
+  min-width: 320px;
+  z-index: 1001;
+  color: #222;
+  max-width: 90vw;
+}
+
+.modal-box h3 {
+  color: #1976d2;
+  margin-bottom: 18px;
+  font-size: 1.3em;
+}
+
+.modal-box button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.modal-box button:hover {
+  background: #0a1836;
+}
+
+.sidebar ul li,
+.sidebar ul li a,
+.sidebar ul li .sidebar-icon {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}
+
+@media (max-width: 900px) {
+  .late-students-content {
+    margin-right: 0;
+    padding: 20px 5px;
+  }
+  .late-students-report {
+    padding: 16px 4px 8px 4px;
+  }
+}

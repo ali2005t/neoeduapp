@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>الطلاب المتأخرين في الدفع</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/late_students.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-left">
+      <img src="img/placeholder-logo.png" alt="شعار السنتر" />
+      <span id="center-name">اسم السنتر</span>
+    </div>
+    <div class="header-right">
+      <button id="logout-btn">تسجيل الخروج</button>
+    </div>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li data-link="dashboard.html"><a href="dashboard.html"><span class="sidebar-icon">🏠</span><span>لوحة التحكم</span></a></li>
+      <li data-link="cashier.html"><a href="cashier.html"><span class="sidebar-icon">💵</span><span>الكاشير</span></a></li>
+      <li data-link="invoices.html"><a href="invoices.html"><span class="sidebar-icon">🧾</span><span>الطلاب المشتركين</span></a></li>
+      <li data-link="unsubscribed_students.html"><a href="unsubscribed_students.html"><span class="sidebar-icon">🧍‍♂️</span><span>فواتير فردية</span></a></li>
+      <li data-link="late_students.html" class="active"><a href="late_students.html"><span class="sidebar-icon">⏰</span><span>الطلاب المتأخرين في الدفع</span></a></li>
+      <li data-link="subscriptions.html"><a href="subscriptions.html"><span class="sidebar-icon">💳</span><span>الاشتراكات والأسعار</span></a></li>
+      <li data-link="users.html"><a href="users.html"><span class="sidebar-icon">👤</span><span>إدارة المستخدمين</span></a></li>
+      <li data-link="reports.html"><a href="reports.html"><span class="sidebar-icon">📊</span><span>التقارير</span></a></li>
+      <li data-link="expenses.html"><a href="expenses.html"><span class="sidebar-icon">💸</span><span>المصروفات</span></a></li>
+      <li data-link="settings.html"><a href="settings.html"><span class="sidebar-icon">⚙️</span><span>الإعدادات</span></a></li>
+      <li data-link="help.html"><a href="help.html"><span class="sidebar-icon">❓</span><span>دليل المساعدة</span></a></li>
+    </ul>
+  </aside>
+  <main class="late-students-content" style="margin-right:220px;padding:40px 30px 30px 30px;min-height:100vh;">
+    <h2 style="color:#e53935;margin-bottom:24px;">الطلاب المتأخرين في الدفع</h2>
+    <div id="late-students-summary" style="margin-bottom:12px;font-weight:bold;color:#1976d2;"></div>
+    <button onclick="window.exportLateStudentsToExcel()" style="background:#43a047;color:#fff;padding:8px 18px;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;box-shadow:0 2px 8px #43a04722;margin-bottom:18px;">تصدير إلى Excel</button>
+    <section class="late-students-report">
+      <div id="late-students-table-box">
+        <table class="report-table late-students-table">
+          <thead style="position:sticky;top:0;z-index:2;">
+            <tr>
+              <th>#</th>
+              <th>اسم الطالب</th>
+              <th>رقم الهاتف</th>
+              <th>نوع الاشتراك</th>
+              <th>إجمالي المبلغ</th>
+              <th>المدفوع</th>
+              <th>المتبقي</th>
+              <th>الحالة</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="8" style="text-align:center;color:#b3b3b3;">لا يوجد طلاب لديهم فواتير تقسيط</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+  <footer style="text-align:center;font-size:13px;color:#1976d2;margin:30px 0 10px 0;font-family:Arial, sans-serif; font-weight:bold; letter-spacing:1px;"><b>Powered by Eng. Lol</b></footer>
+  <script type="module" src="js/late_students.js"></script>
+    <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/firebase.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,253 @@
+@import url('main.css');
+
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  display: flex;
+  background-color: #f7faff;
+}
+
+/* تم تعطيل ستايل الهيدر هنا للاعتماد على main.css فقط */
+/*
+.main-header {
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px #1976d222;
+  min-height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+}
+*/
+
+.header-left img {
+  height: 40px;
+  margin-left: 10px;
+}
+
+.subscriptions-content, .main-content {
+  margin-right: 220px;
+  padding: 40px 30px 30px 30px;
+  min-height: 100vh;
+  background: #f7fbff;
+  box-sizing: border-box;
+}
+
+/* توسيط محتوى صفحة الاشتراكات والأسعار */
+.subscriptions-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: calc(100vh - 92px);
+  margin-top: 92px !important;
+  margin-right: 220px;
+  padding: 0;
+  background: #f7fbff;
+  flex: 1;
+}
+
+.dashboard-content, .users-content, .reports-content, .expenses-content, .settings-content, .invoices-content, .help-content, .subscriptions-content, .unsubscribed_students-content {
+  margin-top: 92px !important;
+}
+
+.form-section, .table-section {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 25px 20px;
+  margin: 0 0 30px 0;
+  width: 100%;
+  box-sizing: border-box;
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.form-section {
+  margin: 0 auto 30px auto;
+}
+
+table {
+  width: 100%;
+  margin: 30px 0 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  direction: rtl;
+  table-layout: auto;
+  max-width: unset;
+  padding-right: 0;
+}
+table th, table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3eaf2;
+  text-align: right;
+  font-size: 16px;
+  word-break: break-word;
+}
+table th, table td {
+  width: auto;
+}
+table th {
+  background: linear-gradient(90deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #00eaff44;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+table tbody tr:nth-child(even) {
+  background: #f3f8ff;
+}
+table tbody tr:hover {
+  background: #e3f2fd;
+}
+table th:first-child, table td.drag-handle {
+  width: 36px;
+  text-align: center;
+  cursor: grab;
+  color: #888;
+  font-size: 1.3em;
+  user-select: none;
+  /* إصلاح للسحب على الأجهزة المكتبية */
+  -webkit-user-drag: element;
+}
+table td.drag-handle:active {
+  cursor: grabbing;
+  color: #1976d2;
+}
+
+/* إصلاح مشكلة SortableJS في RTL */
+table {
+  direction: rtl;
+}
+
+/* إصلاح مشكلة pointer-events */
+table td.drag-handle {
+  pointer-events: auto;
+}
+
+h2 {
+  color: #003f6b;
+  font-weight: bold;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  height: calc(100% - 60px);
+  width: 220px;
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  box-shadow: 0 2px 16px #1976d244;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cairo', 'Tajawal', 'Vazirmatn', sans-serif;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px 14px 10px;
+  cursor: pointer;
+  color: #b0cfff;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  border-radius: 12px 0 0 12px;
+  margin: 6px 0;
+  font-family: inherit;
+}
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: rgba(25,118,210,0.18);
+  color: #fff;
+  box-shadow: -2px 0 16px 2px #00eaff88, 0 0 8px #7c4dff44;
+  text-shadow: 0 0 8px #00eaff, 0 0 2px #fff;
+}
+.sidebar ul li a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.sidebar ul li .sidebar-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #00eaff;
+  background: linear-gradient(135deg, #00eaff 60%, #7c4dff 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00eaff99, 0 0 8px #7c4dff66;
+  margin-left: 8px;
+  transition: box-shadow 0.2s;
+}
+.sidebar ul li.active .sidebar-icon, .sidebar ul li:hover .sidebar-icon {
+  color: #fff;
+  box-shadow: 0 0 24px #00eaffcc, 0 0 16px #7c4dffcc;
+}
+
+.table-section {
+  align-items: unset;
+  width: 100%;
+  direction: rtl;
+}
+
+.table-section h2 {
+  text-align: right;
+  width: 100%;
+  direction: rtl;
+}
+
+/* تحسين استجابة صفحة الاشتراكات للموبايل والشاشات الصغيرة */
+@media (max-width: 900px) {
+  .subscriptions-content {
+    padding: 10px 2vw 5px 2vw !important;
+    margin-right: 0 !important;
+  }
+  .sidebar {
+    display: none !important;
+  }
+}
+@media (max-width: 700px) {
+  .subscriptions-content {
+    padding: 4vw 1vw 2vw 1vw !important;
+  }
+}
+@media (max-width: 500px) {
+  .subscriptions-content {
+    padding: 2vw 0.5vw 1vw 0.5vw !important;
+  }
+}
+@media (min-width: 1600px) {
+  .subscriptions-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 30px 40px !important;
+  }
+}

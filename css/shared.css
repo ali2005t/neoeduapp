@@ -1,0 +1,15 @@
+/* تمت إزالة أي تأثير sidebar متضارب، والاعتماد فقط على main.css */
+
+/* تم تعطيل ستايل الهيدر هنا للاعتماد على main.css فقط */
+/*
+.main-header {
+  background: linear-gradient(90deg, #1976d2 0%, #1565c0 100%);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px #1976d222;
+  min-height: 60px;
+}
+*/

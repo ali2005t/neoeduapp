@@ -1,0 +1,433 @@
+/* صفحة طلاب غير مشتركين */
+.unsubscribed-content {
+  direction: rtl;
+  text-align: right;
+  margin-right: 220px;
+  padding: 0;
+  background: #f7fbff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.unsubscribed-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 32px 32px 32px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px #b3d6f933;
+  margin-top: 40px;
+  text-align: right;
+}
+.unsubscribed-title {
+  font-size: 2rem;
+  color: #1976d2;
+  font-weight: bold;
+  margin-bottom: 24px;
+  text-align: right;
+}
+.unsubscribed-search {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 18px;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: flex-start;
+}
+.unsubscribed-search select,
+.unsubscribed-search input[type="month"],
+.unsubscribed-search input[type="text"] {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #b3c6e0;
+  font-size: 1rem;
+  background: #f3f7fd;
+  min-width: 120px;
+}
+.unsubscribed-search button {
+  background: linear-gradient(90deg,#1976d2 70%,#90caf9 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 22px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px #1976d244;
+}
+.unsubscribed-search button:hover {
+  background: linear-gradient(90deg,#1565c0 70%,#64b5f6 100%);
+}
+.unsubscribed-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px #b3d6f933;
+  overflow: hidden;
+  margin-bottom: 18px;
+  direction: rtl;
+  text-align: right;
+}
+.unsubscribed-table th, .unsubscribed-table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3eaf7;
+  font-size: 1.05rem;
+}
+.unsubscribed-table th {
+  background: #eaf3ff;
+  color: #1976d2;
+  font-weight: bold;
+}
+.unsubscribed-table tr:last-child td {
+  border-bottom: none;
+}
+.unsubscribed-actions button {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 16px;
+  margin-left: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+.unsubscribed-actions button:hover {
+  background: #125ea2;
+}
+.unsubscribed-empty {
+  color: #b3b3b3;
+  font-size: 1.1rem;
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* تمت إزالة أي تأثير sidebar متضارب، والاعتماد فقط على main.css لتأثير الشريط الجانبي عند hover/active */
+
+/*
+.main-header {
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px #1976d222;
+  min-height: 60px;
+}
+*/
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 60px;
+  height: calc(100% - 60px);
+  width: 220px;
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  box-shadow: 0 2px 16px #1976d244;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cairo', 'Tajawal', 'Vazirmatn', sans-serif;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px 14px 10px;
+  cursor: pointer;
+  color: #b0cfff;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  border-radius: 12px 0 0 12px;
+  margin: 6px 0;
+  font-family: inherit;
+}
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: rgba(25,118,210,0.18);
+  color: #fff;
+  box-shadow: -2px 0 16px 2px #00eaff88, 0 0 8px #7c4dff44;
+  text-shadow: 0 0 8px #00eaff, 0 0 2px #fff;
+}
+.sidebar ul li a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.sidebar ul li .sidebar-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #00eaff;
+  background: linear-gradient(135deg, #00eaff 60%, #7c4dff 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00eaff99, 0 0 8px #7c4dff66;
+  margin-left: 8px;
+  transition: box-shadow 0.2s;
+}
+.sidebar ul li.active .sidebar-icon, .sidebar ul li:hover .sidebar-icon {
+  color: #fff;
+  box-shadow: 0 0 24px #00eaffcc, 0 0 16px #7c4dffcc;
+}
+.dashboard-content, .users-content, .reports-content, .expenses-content, .settings-content, .invoices-content, .help-content, .subscriptions-content, .unsubscribed_students-content {
+  margin-top: 92px !important;
+}
+.unsubscribed_students-content {
+  margin-top: 92px !important;
+  padding-top: 0 !important;
+  display: block !important;
+}
+
+/* تحسين استجابة صفحة الطلاب غير المشتركين للموبايل والشاشات الصغيرة */
+@media (max-width: 900px) {
+  body, html {
+    width: 100vw;
+    min-width: 0;
+    max-width: 100vw;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    background: #f8fafd;
+  }
+  main, .main-content, .content {
+    width: 100vw !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    padding: 0 2vw !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+  table {
+    font-size: 1em;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    overflow-x: auto;
+    display: block;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0 2px 12px #90caf922;
+  }
+  th, td {
+    padding: 8px 6px !important;
+    font-size: 1em !important;
+    word-break: break-word;
+  }
+  .sidebar {
+    display: none !important;
+  }
+  .mobile-tabs {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    z-index: 2000;
+    background: #fff;
+    box-shadow: 0 -2px 12px #90caf922;
+  }
+  .mobile-tabs .tab-btn {
+    flex: 1;
+    padding: 10px 0 4px 0;
+    font-size: 1.1em;
+    border-radius: 0;
+    background: none;
+    border: none;
+    color: #1976d2;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .mobile-tabs .tab-btn.active {
+    color: #fff;
+    background: #1976d2;
+    border-radius: 0;
+  }
+}
+@media (max-width: 700px) {
+  .unsubscribed_students-content {
+    padding: 2vw 1vw 70px 1vw !important;
+    margin-right: 0 !important;
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  #unsubscribed-table th, #unsubscribed-table td {
+    font-size: 12px;
+    padding: 6px 2px;
+  }
+  #unsubscribed-table {
+    font-size: 12px;
+    min-width: 600px;
+    width: 100%;
+    overflow-x: auto;
+    display: block;
+  }
+  h2 {
+    font-size: 1.1rem;
+  }
+}
+@media (max-width: 500px) {
+  .unsubscribed_students-content {
+    padding: 2vw 0.5vw 70px 0.5vw !important;
+  }
+  #unsubscribed-table th, #unsubscribed-table td {
+    font-size: 10px;
+    padding: 3px 1px;
+  }
+  h2 {
+    font-size: 1rem;
+  }
+}
+@media (max-width: 400px) {
+  #unsubscribed-table, #unsubscribed-table th, #unsubscribed-table td {
+    font-size: 9px;
+    padding: 2px 1px;
+  }
+}
+@media (min-width: 1600px) {
+  .unsubscribed_students-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 30px 40px !important;
+  }
+}
+
+/* أنماط النوافذ المنبثقة (modal) */
+.modal-bg {
+  position: fixed;
+  top: 0; right: 0; left: 0; bottom: 0;
+  background: rgba(0,0,0,0.18);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInBg 0.2s;
+}
+.modal-box {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 32px #90caf988, 0 2px 8px #e3e3e3cc;
+  padding: 32px 18px 18px 18px;
+  min-width: 320px;
+  max-width: 420px;
+  position: relative;
+  animation: fadeInModal 0.25s cubic-bezier(.4,1.4,.6,1);
+}
+@keyframes fadeInBg {
+  from { background: rgba(0,0,0,0); }
+  to { background: rgba(0,0,0,0.18); }
+}
+@keyframes fadeInModal {
+  from { opacity: 0; transform: translateY(40px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.modal-box button#close-modal-btn {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  color: #1976d2;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.modal-box button#close-modal-btn:hover {
+  color: #f44336;
+}
+.modal-box h2 {
+  color: #1976d2;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+.modal-box textarea, .modal-box input[type="date"] {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #b3c6e0;
+  padding: 8px;
+  font-size: 1rem;
+  background: #f3f7fd;
+  margin-bottom: 8px;
+}
+.modal-box button#save-edit-btn, .modal-box button#delete-confirm-btn {
+  background: #1976d2;
+  color: #fff;
+  padding: 8px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.modal-box button#delete-confirm-btn {
+  background: #f44336;
+}
+.modal-box button#save-edit-btn:hover {
+  background: #125ea2;
+}
+.modal-box button#delete-confirm-btn:hover {
+  background: #b71c1c;
+}
+.invoice-preview-recipient {
+  margin-top: 8px;
+  color: #1976d2;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: right;
+}
+
+/* توحيد مظهر عمود المستلم مع الأعمدة الأخرى */
+.unsubscribed-table th:last-child {
+  background: linear-gradient(90deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #00eaff44;
+  font-size: 1.08rem;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px #003f6b44;
+}
+.unsubscribed-table td:last-child {
+  background: #f7fbff;
+  color: #1976d2;
+  font-weight: bold;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 1em;
+  box-shadow: 0 1px 4px #90caf922;
+  padding: 8px 0;
+}
+
+/* تحسين مظهر شارة المستلم داخل الخلية */
+.recipient-cell {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#e3f2fd 60%,#bbdefb 100%);
+  color: #1976d2;
+  font-weight: bold;
+  font-size: 1em;
+  box-shadow: 0 1px 4px #90caf922;
+}

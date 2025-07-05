@@ -1,0 +1,146 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #e3f2fd 0%, #90caf9 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cairo', 'Tajawal', Arial, sans-serif;
+}
+
+/* خلفية زجاجية شفافة */
+.splash-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  padding: 60px;
+  border-radius: 20px;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+.splash-logo img {
+  width: 110px;
+  height: 110px;
+  border-radius: 24px;
+  box-shadow: 0 4px 24px #1976d244;
+  margin-bottom: 18px;
+  background: #fff;
+}
+
+.center-name {
+  font-size: 28px;
+  color: #ffffff;
+  opacity: 0;
+  animation: showName 1.5s ease-in-out 1s forwards;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* تأثير احتفالي */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: gold;
+  animation: confetti-fall 4s linear infinite;
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(-100px) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Animations */
+@keyframes showName {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.splash-title {
+  color: #1976d2;
+  font-size: 2.1em;
+  font-weight: bold;
+  margin-bottom: 18px;
+  letter-spacing: 1px;
+}
+
+.splash-loader {
+  margin: 24px 0 18px 0;
+}
+
+.loader {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border: 5px solid #90caf9;
+  border-top: 5px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 1.1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.splash-desc {
+  color: #1976d2;
+  font-size: 1.1em;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .splash-title { font-size: 1.2em; }
+  .splash-logo img { width: 70px; height: 70px; }
+  .loader { width: 32px; height: 32px; }
+}

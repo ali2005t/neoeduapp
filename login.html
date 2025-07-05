@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تسجيل الدخول - مركز التعليم</title>
+  <link rel="stylesheet" href="css/login.css" />
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<body>
+  <div class="login-header">
+    <img src="assets/logo.png" class="login-logo" alt="شعار السنتر" />
+    <h1 class="center-name">اسم السنتر  </h1>
+  </div>
+  <div class="login-container">
+    <div class="login-card">
+      <div style="width:100%;text-align:center;">
+        <h2 class="login-title">تسجيل الدخول</h2>
+      </div>
+      <form id="login-form" style="background:#fff;padding:32px 28px 24px 28px;border-radius:16px;box-shadow:0 4px 32px #90caf988;max-width:370px;margin:auto;display:flex;flex-direction:column;gap:18px;">
+        <div class="input-group" style="display:flex;align-items:center;gap:0;direction:ltr;">
+          <span class="input-icon" style="font-family:FontAwesome;">&#xf007;</span>
+          <input type="text" id="username" name="username" placeholder="اسم المستخدم" required autocomplete="username" style="border-radius:8px;padding:12px 14px;font-size:16px;border:1.5px solid #cde4ff;background:#f7fbff;transition:box-shadow 0.2s;width:100%;" />
+        </div>
+        <div class="input-group" style="display:flex;align-items:center;gap:0;direction:ltr;">
+          <span class="input-icon" style="font-family:FontAwesome;">&#xf0e0;</span>
+          <input type="text" id="generated-email" name="generated-email" placeholder="البريد الإلكتروني" readonly style="background:#f7fbff;color:#1976d2;font-size:15px;padding:12px 14px;border-radius:8px;border:1.5px solid #cde4ff;transition:box-shadow 0.2s;width:100%;" tabindex="-1" />
+        </div>
+        <div class="input-group" style="display:flex;align-items:center;gap:0;direction:ltr;position:relative;">
+          <span class="input-icon" style="font-family:FontAwesome;">&#xf023;</span>
+          <input type="password" id="password" name="password" placeholder="كلمة المرور" required autocomplete="current-password" style="border-radius:8px;padding:12px 38px 12px 38px;font-size:16px;border:1.5px solid #cde4ff;background:#f7fbff;transition:box-shadow 0.2s;width:100%;direction:rtl;" />
+          <button type="button" class="toggle-password" id="toggle-password" tabindex="-1" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;padding:0 6px;font-size:16px;display:flex;align-items:center;justify-content:center;">
+            <i class="fa fa-eye" style="color:#1976d2;"></i>
+          </button>
+        </div>
+        <div class="remember-row" style="display:flex;align-items:center;gap:7px;">
+          <input type="checkbox" id="remember-me" style="accent-color:#1976d2;width:18px;height:18px;" />
+          <label for="remember-me" style="font-size:15px;color:#1976d2;">تذكرني</label>
+        </div>
+        <button type="submit" style="background:#1976d2;color:#fff;padding:12px 0;font-size:17px;font-weight:600;border:none;border-radius:8px;box-shadow:0 2px 12px #1976d255;cursor:pointer;transition:background 0.18s;">تسجيل الدخول</button>
+        <p id="error-message" class="error" style="color:#e53935;font-size:15px;text-align:center;margin:0;"></p>
+      </form>
+    </div>
+  </div>
+  <!-- موجة SVG سفلية مع حركة -->
+  <svg class="wave" viewBox="0 0 1440 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill="url(#waveGradient1)" fill-opacity="0.18" d="M0,120 C360,180 1080,60 1440,120 L1440,180 L0,180 Z"></path>
+    <path fill="url(#waveGradient2)" fill-opacity="0.28" d="M0,140 C400,100 1040,200 1440,140 L1440,180 L0,180 Z"></path>
+    <path fill="url(#waveGradient3)" fill-opacity="0.38" d="M0,160 C480,220 960,80 1440,160 L1440,180 L0,180 Z"></path>
+    <defs>
+      <linearGradient id="waveGradient1" x1="0" y1="0" x2="1440" y2="180" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#0a1836" />
+        <stop offset="1" stop-color="#1976d2" />
+      </linearGradient>
+      <linearGradient id="waveGradient2" x1="0" y1="0" x2="1440" y2="180" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#1976d2" />
+        <stop offset="1" stop-color="#0a1836" />
+      </linearGradient>
+      <linearGradient id="waveGradient3" x1="0" y1="0" x2="1440" y2="180" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#101c2c" />
+        <stop offset="1" stop-color="#1976d2" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/login.js"></script>
+  <footer style="text-align:center;font-size:13px;color:#1976d2;margin:30px 0 10px 0;font-family:Arial, sans-serif; font-weight:bold; letter-spacing:1px;"><b>Powered by Eng. Lol</b></footer>
+</body>
+</html>

@@ -1,0 +1,120 @@
+/* فرض محاذاة يمين صارمة لكل عناصر صفحة المساعدة */
+.help-content, .help-main-content, .help-content-body, .help-card, .help-card *, h2, h3, ul, li, p, div, section, aside, main, header, body, html {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext !important;
+  /* لإجبار المتصفح على تطبيق القواعد حتى مع وجود تعارض */
+  box-sizing: border-box !important;
+}
+
+/* معالجة أي تعارض محتمل مع main.css أو أي ملف آخر */
+.help-content *, .help-main-content *, .help-content-body * {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext !important;
+  box-sizing: border-box !important;
+}
+
+/* إصلاح محاذاة القوائم داخل الكروت */
+.help-card ul, .help-card ol {
+  padding-right: 28px !important;
+  padding-left: 0 !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  list-style-position: inside !important;
+}
+
+/* إصلاح محاذاة العناوين داخل الكروت */
+.help-card h3, .help-card h2 {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* إصلاح محاذاة النصوص داخل الكروت */
+.help-card p, .help-card li {
+  text-align: right !important;
+  direction: rtl !important;
+}
+
+/* إصلاح محاذاة الكروت نفسها */
+.help-card {
+  float: none !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+/* إصلاح sidebar في صفحة المساعدة فقط */
+.help-content .sidebar, .help-content .sidebar *, .help-sidebar, .help-sidebar * {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+/* تحسين مظهر كروت المساعدة والعناوين بشكل عصري وواضح */
+.help-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 18px #b3e5fc44;
+  padding: 28px 24px 18px 18px;
+  margin-bottom: 32px;
+  margin-top: 18px;
+  color: #222;
+  font-size: 1.15em;
+  line-height: 2.1;
+  border-right: 6px solid #90caf9;
+  transition: box-shadow 0.2s, border 0.2s;
+}
+.help-card h3 {
+  color: #1976d2;
+  font-size: 1.35em;
+  font-weight: bold;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.help-card ul {
+  margin: 16px 0 0 0;
+  padding-right: 28px;
+  list-style: disc inside;
+  font-size: 1em;
+}
+
+/* تحسين مظهر العنوان الرئيسي */
+.help-content-body > h2 {
+  color: #1976d2;
+  font-weight: bold;
+  margin-bottom: 18px;
+  font-size: 2rem;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* تحسين مظهر الكارت التمهيدي */
+.help-content-body > .help-card:first-of-type {
+  background: #e3f2fd;
+  color: #1976d2;
+  font-size: 1.1em;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 32px;
+}
+
+/* إصلاح محاذاة في الشاشات الصغيرة */
+@media (max-width: 900px) {
+  .help-content, .help-main-content, .help-content-body, .help-card, .help-card *, h2, h3, ul, li, p, div, section, aside, main, header, body, html {
+    direction: rtl !important;
+    text-align: right !important;
+    unicode-bidi: plaintext !important;
+    box-sizing: border-box !important;
+  }
+}
+
+/* توحيد حجم ووزن الخط في جميع عناصر القوائم الجانبية */
+.sidebar ul li,
+.sidebar ul li a,
+.sidebar ul li .sidebar-icon {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}

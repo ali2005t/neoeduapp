@@ -1,0 +1,223 @@
+/* احذف أو علق جميع تعريفات .sidebar وما يتعلق بها هنا، واعتمد فقط على main.css */
+/*
+.sidebar, .sidebar ul, .sidebar ul li, .sidebar ul li.active, .sidebar ul li:hover, .sidebar ul li a, .sidebar ul li .sidebar-icon {
+  all: unset;
+}
+*/
+@import url('main.css');
+
+.users-content {
+  margin-right: 0;
+  padding: 20px 5px;
+}
+
+#add-user-form {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+  max-width: 100%;
+}
+#add-user-form input, #add-user-form select, #add-user-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #cde4ff;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f7fbff;
+  transition: border 0.2s;
+}
+#add-user-form input:focus, #add-user-form select:focus, #add-user-form textarea:focus {
+  border: 1.5px solid #0077aa;
+  outline: none;
+}
+#add-user-form button {
+  background: #0077aa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+  margin-left: 8px;
+  margin-top: 8px;
+  min-width: 120px;
+  font-weight: bold;
+  box-shadow: 0 2px 8px #1976d222;
+}
+#add-user-form button:hover {
+  background: #005f88;
+}
+#add-user-form button:active {
+  background: #003f6b;
+}
+
+h2 {
+  color: #003f6b;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+/* تم تعطيل ستايل الهيدر هنا للاعتماد على main.css فقط */
+/*
+.main-header {
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px #1976d222;
+  min-height: 60px;
+}
+*/
+
+/* تمت إزالة أي تأثير sidebar متضارب، والاعتماد فقط على main.css */
+
+/* فرض نوع وحجم الخط للقائمة الجانبية في صفحة المستخدمين */
+.sidebar, .sidebar ul, .sidebar ul li, .sidebar ul li a, .sidebar ul li .sidebar-icon {
+  font-family: 'Cairo', 'Tajawal', 'Vazirmatn', Arial, sans-serif !important;
+  font-size: 18px !important;
+}
+
+.dashboard-content, .users-content, .reports-content, .expenses-content, .settings-content, .invoices-content, .help-content, .subscriptions-content, .unsubscribed_students-content {
+  margin-top: 92px !important;
+}
+
+table {
+  width: 100%;
+  margin: 30px 0 0 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  direction: rtl;
+  table-layout: auto;
+  max-width: unset;
+}
+table th, table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3eaf2;
+  text-align: right;
+  font-size: 16px;
+  word-break: break-word;
+}
+table th {
+  background: linear-gradient(90deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  font-weight: bold;
+  border-bottom: 2px solid #00eaff44;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+table tbody tr:nth-child(even) {
+  background: #f3f8ff;
+}
+table tbody tr:hover {
+  background: #e3f2fd;
+}
+
+/* تحسين استجابة صفحة المستخدمين للموبايل والشاشات الصغيرة */
+@media (max-width: 900px) {
+  .users-content {
+    padding: 10px 2vw 5px 2vw !important;
+    margin-right: 0 !important;
+  }
+  .sidebar {
+    display: none !important;
+  }
+}
+@media (max-width: 700px) {
+  .users-content {
+    padding: 4vw 1vw 2vw 1vw !important;
+  }
+}
+@media (max-width: 500px) {
+  .users-content {
+    padding: 2vw 0.5vw 1vw 0.5vw !important;
+  }
+}
+@media (min-width: 1600px) {
+  .users-content {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 40px 40px 30px 40px !important;
+  }
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #f7fbff;
+  border-radius: 7px;
+  border: 1.5px solid #cde4ff;
+  margin-bottom: 12px;
+  padding: 0 8px;
+  position: relative;
+  transition: border 0.2s;
+}
+.input-group:focus-within {
+  border: 1.5px solid #1976d2;
+  background: #e3f2fd;
+}
+.input-group .input-icon {
+  font-size: 1.3em;
+  margin-left: 8px;
+  color: #1976d2;
+  opacity: 0.85;
+}
+.input-group input,
+.input-group select {
+  border: none;
+  background: transparent;
+  outline: none;
+  flex: 1;
+  font-size: 15px;
+  padding: 12px 8px;
+  color: #003f6b;
+}
+.input-group input:read-only {
+  color: #1976d2;
+  background: none;
+}
+.form-row {
+  display: flex;
+  gap: 18px;
+  margin-bottom: 0;
+}
+@media (max-width: 900px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+#user-form-alert {
+  border-radius: 7px;
+  padding: 10px 18px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: none;
+}
+#user-form-alert.error {
+  background: #fff3e0;
+  color: #e65100;
+  border: 1.5px solid #ffb300;
+}
+#user-form-alert.success {
+  background: #e8f5e9;
+  color: #388e3c;
+  border: 1.5px solid #43a047;
+}
+.users-table-section {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #1976d222;
+  padding: 24px 18px 18px 18px;
+  margin-top: 30px;
+}

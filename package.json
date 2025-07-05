@@ -1,0 +1,40 @@
+{
+  "name": "neoeduapp",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . NeoEduApp --platform=win32 --arch=x64 --icon=ico/ico.ico --overwrite",
+    "dist": "electron-builder --win --x64 --config.directories.output=install"
+  },
+  "keywords": [],
+  "author": "eglol",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "electron-packager": "^17.1.2"
+  },
+  "build": {
+    "appId": "com.neoeduapp.desktop",
+    "productName": "NeoEduApp",
+    "directories": {
+      "output": "install"
+    },
+    "win": {
+      "icon": "ico/ico.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

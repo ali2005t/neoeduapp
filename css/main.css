@@ -1,0 +1,461 @@
+body {
+  font-family: 'Cairo', Arial, sans-serif;
+  margin: 0;
+  /* background: #0a1836; */
+  background: #f4f7fb;
+  color: #222;
+  direction: rtl;
+}
+
+.main-header {
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 8px #1976d222;
+  min-height: 60px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 200;
+}
+.main-header .header-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.main-header .header-left img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #1565c044;
+}
+.main-header #center-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  opacity: 0.95;
+}
+.main-header #logout-btn {
+  background: #fff;
+  color: #1976d2;
+  border: none;
+  border-radius: 8px;
+  padding: 7px 18px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 1px 6px #1976d222;
+  transition: background 0.18s, color 0.18s;
+}
+.main-header #logout-btn:hover {
+  background: #1565c0;
+  color: #fff;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 92px !important; /* توحيد الهامش بين الهيدر والقائمة الجانبية في جميع الصفحات */
+  height: calc(100% - 70px);
+  width: 220px;
+  background: linear-gradient(135deg, #0a1836 60%, #101c2c 100%);
+  box-shadow: 0 2px 16px #1976d244;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Cairo', 'Tajawal', 'Vazirmatn', Arial, sans-serif;
+  font-size: 18px;
+}
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+.sidebar ul li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px 14px 10px;
+  cursor: pointer;
+  color: #b0cfff;
+  font-size: 18px;
+  position: relative;
+  transition: color 0.2s, background 0.2s, box-shadow 0.2s;
+  border-radius: 12px 0 0 12px;
+  margin: 6px 0;
+  font-family: inherit;
+}
+.sidebar ul li.active, .sidebar ul li:hover {
+  background: rgba(25,118,210,0.18);
+  color: #fff;
+  box-shadow: -2px 0 16px 2px #00eaff88, 0 0 8px #7c4dff44;
+  text-shadow: 0 0 8px #00eaff, 0 0 2px #fff;
+}
+.sidebar ul li a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.sidebar ul li .sidebar-icon {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: #00eaff;
+  background: linear-gradient(135deg, #00eaff 60%, #7c4dff 100%);
+  border-radius: 8px;
+  box-shadow: 0 0 12px #00eaff99, 0 0 8px #7c4dff66;
+  margin-left: 8px;
+  transition: box-shadow 0.2s;
+}
+.sidebar ul li.active .sidebar-icon, .sidebar ul li:hover .sidebar-icon {
+  color: #fff;
+  box-shadow: 0 0 24px #00eaffcc, 0 0 16px #7c4dffcc;
+}
+.sidebar ul li[data-link="late_students.html"] {
+  display: flex !important;
+  /* تأكد من ظهور العنصر وعدم إخفائه */
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+  pointer-events: auto !important;
+}
+@media (max-width: 900px) {
+  .sidebar {
+    width: 60px;
+  }
+  .dashboard-content {
+    margin-right: 60px;
+  }
+  .sidebar ul li a span {
+    display: none;
+  }
+}
+
+.help-content {
+  margin-right: 220px;
+  padding: 40px 30px 30px 30px;
+  min-height: 100vh;
+}
+#help-sections {
+  display: flex;
+  gap: 40px;
+}
+#help-sections ul {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 20px 0;
+  min-width: 220px;
+  max-width: 250px;
+  margin: 0;
+  list-style: none;
+}
+#help-sections ul li {
+  padding: 12px 18px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  color: #333;
+  transition: background 0.2s, color 0.2s;
+}
+#help-sections ul li:hover,
+#help-sections ul li.selected {
+  background: #cde4ff;
+  color: #0077aa;
+}
+#help-sections ul li.selected {
+  background: linear-gradient(90deg, #cde4ff 80%, #eaf3ff 100%);
+  color: #0077aa;
+  font-weight: bold;
+  border-right: 4px solid #0077aa;
+}
+#help-details {
+  flex: 1;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 30px 25px;
+  min-height: 300px;
+  font-size: 17px;
+  color: #222;
+  line-height: 2;
+  min-height: 220px;
+  font-size: 18px;
+  color: #1a237e;
+  background: #f7fbff;
+  border: 1.5px solid #cde4ff;
+  margin-top: 0;
+  box-shadow: 0 2px 8px rgba(0,119,170,0.04);
+}
+#help-details b {
+  color: #0077aa;
+  font-size: 20px;
+}
+#help-details ul, #help-details ol {
+  margin: 10px 0 10px 0;
+  padding-right: 20px;
+}
+
+/* جداول عامة */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  margin-top: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  border-radius: 10px;
+  overflow: hidden;
+}
+table th, table td {
+  padding: 14px 10px;
+  border-bottom: 1px solid #e3e3e3;
+  text-align: center;
+  font-size: 16px;
+}
+table th {
+  background: #eaf3ff;
+  color: #0077aa;
+  font-weight: bold;
+}
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* نماذج عامة */
+form {
+  background: #fff;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 30px;
+  max-width: 500px;
+}
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #cde4ff;
+  border-radius: 6px;
+  font-size: 15px;
+  background: #f7fbff;
+  transition: border 0.2s;
+}
+form input:focus, form select:focus, form textarea:focus {
+  border: 1.5px solid #0077aa;
+  outline: none;
+}
+form button {
+  background: #0077aa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 25px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+form button:hover {
+  background: #005f88;
+}
+
+/* عناوين عامة */
+h1, h2, h3 {
+  color: #003f6b;
+  font-weight: bold;
+  margin-bottom: 18px;
+}
+
+/* محتوى الصفحات */
+.dashboard-content, .users-content, .reports-content, .expenses-content, .settings-content, .invoices-content, .help-content, .subscriptions-content, .unsubscribed_students-content {
+  margin-right: 220px;
+  padding: 40px 30px 30px 30px;
+  min-height: 100vh;
+  margin-top: 92px !important; /* ضبط الهامش العلوي لمحتوى الصفحات ليكون 92px */
+}
+.unsubscribed_students-content {
+  margin-top: 130px !important;
+  padding-top: 0 !important;
+  display: block !important;
+}
+
+/* ملخصات وجداول جانبية */
+.expenses-summary, #reports-summary {
+  background: #f7fbff;
+  border-radius: 10px;
+  padding: 18px 20px;
+  margin-top: 25px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+/* أزرار عامة */
+button, .btn {
+  background: #0077aa;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+button:hover, .btn:hover {
+  background: #005f88;
+}
+
+/* إشعارات مرئية عصرية */
+.custom-notification {
+  position: fixed;
+  top: 32px;
+  right: 32px;
+  z-index: 9999;
+  background: #1976d2;
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1.1em;
+  box-shadow: 0 4px 24px #1976d244;
+  opacity: 0.97;
+  transition: opacity 0.4s, transform 0.4s;
+  animation: notifIn 0.5s cubic-bezier(.4,1.4,.6,1) both;
+}
+.custom-notification.hide {
+  opacity: 0;
+  transform: translateY(-30px) scale(0.95);
+}
+.custom-notification.success { background: #43a047; }
+.custom-notification.error { background: #e53935; }
+.custom-notification.info { background: #1976d2; }
+@keyframes notifIn {
+  from { opacity: 0; transform: translateY(-30px) scale(0.95); }
+  to { opacity: 0.97; transform: none; }
+}
+@media (max-width: 600px) {
+  .custom-notification {
+    right: 8px;
+    left: 8px;
+    top: 12px;
+    padding: 10px 8px;
+    font-size: 1em;
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .dashboard-content, .users-content, .reports-content, .expenses-content, .settings-content, .invoices-content, .help-content {
+    margin-right: 0;
+    padding: 20px 5px;
+  }
+  .sidebar {
+    width: 100vw;
+    min-height: unset;
+    position: static;
+    box-shadow: none;
+    border-left: none;
+    padding-top: 0;
+  }
+  .sidebar ul li {
+    border-radius: 10px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    padding: 12px 10px 12px 6px;
+  }
+  form {
+    max-width: 100%;
+  }
+  .mobile-tabs {
+    display: flex !important;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+    background: #f7fbff;
+    box-shadow: 0 -2px 8px #b3d6f922;
+    border-radius: 16px 16px 0 0;
+    overflow-x: auto;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    height: 68px;
+    border-top: 1.5px solid #e3eaf2;
+  }
+  .mobile-tabs .tab-btn {
+    flex: 1 1 0;
+    padding: 4px 0 0 0;
+    font-size: 1.25rem;
+    color: #1976d2;
+    background: none;
+    border: none;
+    border-top: 3px solid transparent;
+    border-bottom: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s, border 0.2s, background 0.2s;
+    outline: none;
+    min-width: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+  }
+  .mobile-tabs .tab-btn .tab-label {
+    font-size: 0.95rem;
+    color: #1976d2;
+    margin-top: 2px;
+    font-weight: normal;
+    letter-spacing: 0.2px;
+  }
+  .mobile-tabs .tab-btn.active {
+    color: #fff;
+    background: linear-gradient(90deg, #0a1836 60%, #1976d2 100%);
+    border-top: 3px solid #00eaff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 -2px 8px #1976d244;
+  }
+  .mobile-tabs .tab-btn.active .tab-label {
+    color: #fff;
+    font-weight: bold;
+  }
+  body {
+    padding-bottom: 80px !important;
+  }
+}
+@media (max-width: 500px) {
+  .mobile-tabs {
+    height: 76px;
+  }
+  .mobile-tabs .tab-btn {
+    font-size: 1.05rem;
+    min-width: 60px;
+  }
+  .mobile-tabs .tab-btn .tab-label {
+    font-size: 0.85rem;
+  }
+  body {
+    padding-bottom: 90px !important;
+  }
+}
+.sidebar ul li,
+.sidebar ul li a,
+.sidebar ul li .sidebar-icon {
+  font-size: 17px !important;
+  font-weight: 500 !important;
+}

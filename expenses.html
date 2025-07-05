@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المصروفات</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/expenses.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="header-left">
+      <img src="img/placeholder-logo.png" alt="شعار السنتر" />
+      <span id="center-name">اسم السنتر</span>
+    </div>
+    <div class="header-right">
+
+      <button id="logout-btn">تسجيل الخروج</button>
+    </div>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li data-link="dashboard.html"><a href="dashboard.html"><span class="sidebar-icon">🏠</span><span>لوحة التحكم</span></a></li>
+      <li data-link="cashier.html"><a href="cashier.html"><span class="sidebar-icon">💵</span><span>الكاشير</span></a></li>
+      <li data-link="invoices.html"><a href="invoices.html"><span class="sidebar-icon">🧾</span><span>الطلاب المشتركين</span></a></li>
+      <li><a href="unsubscribed_students.html"><span class="sidebar-icon">🧍‍♂️</span><span>فواتير فردية</span></a></li>
+            <li data-link="late_students.html"><a href="late_students.html"><span class="sidebar-icon">⏰</span><span>الطلاب المتأخرين في الدفع</span></a></li>
+
+      <li data-link="subscriptions.html"><a href="subscriptions.html"><span class="sidebar-icon">💳</span><span>الاشتراكات والأسعار</span></a></li>
+      <li data-link="users.html"><a href="users.html"><span class="sidebar-icon">👤</span><span>إدارة المستخدمين</span></a></li>
+      <li data-link="reports.html"><a href="reports.html"><span class="sidebar-icon">📊</span><span>التقارير</span></a></li>
+      <li class="active" data-link="expenses.html"><a href="expenses.html"><span class="sidebar-icon">💸</span><span>المصروفات</span></a></li>
+      <li data-link="settings.html"><a href="settings.html"><span class="sidebar-icon">⚙️</span><span>الإعدادات</span></a></li>
+      <li data-link="help.html"><a href="help.html"><span class="sidebar-icon">❓</span><span>دليل المساعدة</span></a></li>
+    </ul>
+  </aside>
+  <!-- التابات العلوية للموبايل -->
+  <nav class="mobile-tabs" style="display:none">
+    <button class="tab-btn" data-link="dashboard.html">🏠<div class="tab-label">لوحة التحكم</div></button>
+    <button class="tab-btn" data-link="cashier.html">💵<div class="tab-label">الكاشير</div></button>
+    <button class="tab-btn" data-link="invoices.html">🧾<div class="tab-label">الطلاب المشتركين</div></button>
+    <button class="tab-btn" data-link="unsubscribed_students.html">🧍‍♂️<div class="tab-label">فواتير فردية</div></button>
+    <button class="tab-btn" data-link="subscriptions.html">💳<div class="tab-label">الاشتراكات</div></button>
+    <button class="tab-btn" data-link="users.html">👤<div class="tab-label">المستخدمين</div></button>
+    <button class="tab-btn" data-link="reports.html">📊<div class="tab-label">التقارير</div></button>
+    <button class="tab-btn active" data-link="expenses.html">💸<div class="tab-label">المصروفات</div></button>
+    <button class="tab-btn" data-link="settings.html">⚙️<div class="tab-label">الإعدادات</div></button>
+    <button class="tab-btn" data-link="help.html">❓<div class="tab-label">مساعدة</div></button>
+  </nav>
+  <!-- التابات السفلية للموبايل -->
+  <nav class="mobile-tabs" style="display:none">
+    <button class="tab-btn" data-link="dashboard.html">🏠<div class="tab-label">لوحة التحكم</div></button>
+    <button class="tab-btn" data-link="cashier.html">💵<div class="tab-label">الكاشير</div></button>
+    <button class="tab-btn" data-link="invoices.html">🧾<div class="tab-label">الطلاب المشتركين</div></button>
+    <button class="tab-btn" data-link="unsubscribed_students.html">🧍‍♂️<div class="tab-label">فواتير فردية</div></button>
+    <button class="tab-btn" data-link="subscriptions.html">💳<div class="tab-label">الاشتراكات</div></button>
+    <button class="tab-btn" data-link="users.html">👤<div class="tab-label">المستخدمين</div></button>
+    <button class="tab-btn" data-link="reports.html">📊<div class="tab-label">التقارير</div></button>
+    <button class="tab-btn active" data-link="expenses.html">💸<div class="tab-label">المصروفات</div></button>
+    <button class="tab-btn" data-link="settings.html">⚙️<div class="tab-label">الإعدادات</div></button>
+    <button class="tab-btn" data-link="help.html">❓<div class="tab-label">مساعدة</div></button>
+  </nav>
+  <main class="expenses-content" style="margin-right:220px;">
+    <h2>إضافة مصروف جديد</h2>
+    <form id="add-expense-form">
+      <select id="expense-type">
+        <option value="إيجار">إيجار</option>
+        <option value="مرتبات">مرتبات</option>
+        <option value="كهرباء">كهرباء</option>
+        <option value="مياه">مياه</option>
+        <option value="صيانة">صيانة</option>
+        <option value="أخرى">أخرى</option>
+      </select>
+      <input type="number" id="expense-value" placeholder="القيمة المالية" required />
+      <input type="date" id="expense-date" required />
+      <input type="text" id="expense-note" placeholder="ملاحظات (اختياري)" />
+      <button type="submit">حفظ المصروف</button>
+    </form>
+    <div class="expenses-summary" style="margin-bottom: 24px; margin-top: 0; text-align: right;">
+      <h3>ملخص المصروفات</h3>
+      <div id="expenses-total">إجمالي المصروفات: --</div>
+      <div id="expenses-by-type">--</div>
+    </div>
+    <h2>جدول المصروفات</h2>
+    <table id="expenses-table">
+      <thead>
+        <tr>
+          <th>رقم المصروف</th>
+          <th>النوع</th>
+          <th>القيمة</th>
+          <th>التاريخ</th>
+          <th>ملاحظات</th>
+          <th>تعديل</th>
+          <th>حذف</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- المصروفات هنا -->
+      </tbody>
+    </table>
+  </main>
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/expenses.js"></script>
+  <script>
+  function handleMobileTabs() {
+    const tabs = document.querySelector('.mobile-tabs');
+    if(window.innerWidth <= 900) {
+      tabs && (tabs.style.display = 'flex');
+    } else {
+      tabs && (tabs.style.display = 'none');
+    }
+  }
+  window.addEventListener('resize', handleMobileTabs);
+  window.addEventListener('DOMContentLoaded', handleMobileTabs);
+  if(document.querySelector('.mobile-tabs')) {
+    document.querySelectorAll('.mobile-tabs .tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        window.location.href = btn.getAttribute('data-link');
+      });
+    });
+  }
+</script>
+<footer style="text-align:center;font-size:13px;color:#1976d2;margin:30px 0 10px 0;font-family:Arial, sans-serif; font-weight:bold; letter-spacing:1px;"><b>Powered by Eng. Lol</b></footer>
+</body>
+
+</html>

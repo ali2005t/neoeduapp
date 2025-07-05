@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>التقارير</title>
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/reports.css" />
+</head>
+
+<body>
+  <header class="main-header">
+    <div class="header-left">
+      <img src="img/placeholder-logo.png" alt="شعار السنتر" />
+      <span id="center-name">اسم السنتر</span>
+    </div>
+    <div class="header-right">
+
+      <button id="logout-btn">تسجيل الخروج</button>
+    </div>
+  </header>
+  <aside class="sidebar">
+    <ul>
+      <li data-link="dashboard.html"><a href="dashboard.html"><span class="sidebar-icon">🏠</span><span>لوحة التحكم</span></a></li>
+      <li data-link="cashier.html"><a href="cashier.html"><span class="sidebar-icon">💵</span><span>الكاشير</span></a></li>
+      <li data-link="invoices.html"><a href="invoices.html"><span class="sidebar-icon">🧾</span><span>الطلاب المشتركين</span></a></li>
+      <li><a href="unsubscribed_students.html"><span class="sidebar-icon">🧍‍♂️</span><span>فواتير فردية</span></a></li>
+            <li data-link="late_students.html"><a href="late_students.html"><span class="sidebar-icon">⏰</span><span>الطلاب المتأخرين في الدفع</span></a></li>
+
+      <li data-link="subscriptions.html"><a href="subscriptions.html"><span class="sidebar-icon">💳</span><span>الاشتراكات والأسعار</span></a></li>
+      <li data-link="users.html"><a href="users.html"><span class="sidebar-icon">👤</span><span>إدارة المستخدمين</span></a></li>
+      <li class="active" data-link="reports.html"><a href="reports.html"><span class="sidebar-icon">📊</span><span>التقارير</span></a></li>
+      <li data-link="expenses.html"><a href="expenses.html"><span class="sidebar-icon">💸</span><span>المصروفات</span></a></li>
+      <li data-link="settings.html"><a href="settings.html"><span class="sidebar-icon">⚙️</span><span>الإعدادات</span></a></li>
+      <li data-link="help.html"><a href="help.html"><span class="sidebar-icon">❓</span><span>دليل المساعدة</span></a></li>
+    </ul>
+  </aside>
+  <!-- التابات العلوية للموبايل -->
+  <nav class="mobile-tabs" style="display:none">
+    <button class="tab-btn" data-link="dashboard.html">🏠<div class="tab-label">لوحة التحكم</div></button>
+    <button class="tab-btn" data-link="cashier.html">💵<div class="tab-label">الكاشير</div></button>
+    <button class="tab-btn" data-link="invoices.html">🧾<div class="tab-label">الطلاب المشتركين</div></button>
+    <button class="tab-btn" data-link="unsubscribed_students.html">🧍‍♂️<div class="tab-label">فواتير فردية</div></button>
+    <button class="tab-btn" data-link="subscriptions.html">💳<div class="tab-label">الاشتراكات</div></button>
+    <button class="tab-btn" data-link="users.html">👤<div class="tab-label">المستخدمين</div></button>
+    <button class="tab-btn active" data-link="reports.html">📊<div class="tab-label">التقارير</div></button>
+    <button class="tab-btn" data-link="expenses.html">💸<div class="tab-label">المصروفات</div></button>
+    <button class="tab-btn" data-link="settings.html">⚙️<div class="tab-label">الإعدادات</div></button>
+    <button class="tab-btn" data-link="help.html">❓<div class="tab-label">مساعدة</div></button>
+  </nav>
+  <main class="reports-content" style="margin-right:220px;">
+    <h2>التقارير والإحصائيات</h2>
+    <!-- إحصائيات سريعة -->
+    <section class="quick-stats" style="display:flex;gap:24px;margin-bottom:32px;">
+      <div class="stat-box" style="background:#e3f2fd;padding:18px 32px;border-radius:14px;min-width:180px;text-align:center;box-shadow:0 2px 8px #90caf922;">
+        <div style="font-size:2.2em;font-weight:bold;color:#1976d2;">0</div>
+        <div style="color:#1976d2;font-weight:500;">عدد الفواتير</div>
+      </div>
+      <div class="stat-box" style="background:#e8f5e9;padding:18px 32px;border-radius:14px;min-width:180px;text-align:center;box-shadow:0 2px 8px #43a04722;">
+        <div style="font-size:2.2em;font-weight:bold;color:#43a047;">0 ج</div>
+        <div style="color:#388e3c;font-weight:500;">إجمالي الدخل</div>
+      </div>
+      <div class="stat-box" style="background:#fffde7;padding:18px 32px;border-radius:14px;min-width:180px;text-align:center;box-shadow:0 2px 8px #ffd60022;">
+        <div style="font-size:2.2em;font-weight:bold;color:#ffb300;">0 ج</div>
+        <div style="color:#ffb300;font-weight:500;">متوسط الفاتورة</div>
+      </div>
+    </section>
+
+    <!-- أي تقارير أخرى -->
+
+    <div class="filter-bar">
+      <select id="filter-period">
+        <option value="all">كل الوقت</option>
+        <option value="day">اليوم</option>
+        <option value="month">هذا الشهر</option>
+        <option value="year">هذه السنة</option>
+        <option value="custom">مخصص...</option>
+      </select>
+      <input type="date" id="filter-date" style="display:none;" />
+      <input type="month" id="filter-month" style="display:none;" />
+      <input type="number" id="filter-year" min="2000" max="2100" placeholder="السنة" style="display:none;width:100px;" />
+      <button id="export-excel-btn" style="background:#43a047;color:#fff;padding:8px 18px;border:none;border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;box-shadow:0 2px 8px #43a04722;">تصدير Excel</button>
+    </div>
+    <div id="reports-summary">
+      <!-- ملخص الأرباح والإحصائيات في مربعات -->
+      <div class="profit-cards-container">
+        <div class="profit-card">
+          <div class="profit-title">اشتراكات كورسات</div>
+          <div class="profit-value" id="profit-courses">--</div>
+        </div>
+        <div class="profit-card">
+          <div class="profit-title">اشتراكات ملازم</div>
+          <div class="profit-value" id="profit-notes">--</div>
+        </div>
+        <div class="profit-card">
+          <div class="profit-title">محاضرات فردية</div>
+          <div class="profit-value" id="profit-lectures">--</div>
+        </div>
+        <div class="profit-card">
+          <div class="profit-title">ملازم فردية</div>
+          <div class="profit-value" id="profit-indiv-notes">--</div>
+        </div>
+      </div>
+      <!-- أرباح اليوم لكل مستلم (مضاف من جديد) -->
+      <section id="recipient-today-profit-section" style="margin-bottom:24px;"></section>
+      <!-- أرباح كل مستلم لكل يوم -->
+      <div id="recipient-daily-profit-section"></div>
+      <br>
+      <!-- باقي الجداول كما هي -->
+      <table>
+        <thead>
+          <tr>
+            <th>الفرقة</th>
+            <th>كورسات</th>
+            <th>ملازم</th>
+            <th>محاضرات</th>
+            <th>ملازم فردي</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>أولى</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>ثانية</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>ثالثة</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>رابعة</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <table>
+        <thead>
+          <tr>
+            <th>الفرقة</th>
+            <th>انتظام</th>
+            <th>انتساب</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>أولى</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>ثانية</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>ثالثة</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+          <tr>
+            <td>رابعة</td>
+            <td>--</td>
+            <td>--</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- جدول ربح لكل مستلم -->
+      <section id="recipient-total-profit-section" style="margin:32px 0 0 0;">
+        <div style="margin-bottom:8px;font-weight:bold;color:#1976d2;">جدول ربح كل مستلم (إجمالي)</div>
+        <table class="report-table" id="recipient-total-profit-table" style="width:100%;background:#e3f2fd;border-radius:10px;box-shadow:0 1px 8px #e3f2fd44;margin-bottom:12px;">
+          <thead>
+            <tr><th>المستلم</th><th>إجمالي الربح</th></tr>
+          </thead>
+          <tbody>
+            <tr><td colspan="2" style="text-align:center;color:#b3b3b3;">لا توجد بيانات</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+    <div id="reports-charts">
+      <!-- الرسوم البيانية -->
+      <canvas id="reports-pie-canvas" height="220" style="background:#f9f9f9; border-radius:10px; margin-top:30px;"></canvas>
+      <canvas id="reports-line-canvas" height="220" style="background:#f9f9f9; border-radius:10px; margin-top:30px;"></canvas>
+      <canvas id="reports-bar-canvas" height="220" style="background:#f9f9f9; border-radius:10px; margin-top:30px;"></canvas>
+    </div>
+  </main>
+  <!-- التابات السفلية للموبايل -->
+  <nav class="mobile-tabs" style="display:none">
+    <button class="tab-btn" data-link="dashboard.html">🏠<div class="tab-label">لوحة التحكم</div></button>
+    <button class="tab-btn" data-link="cashier.html">💵<div class="tab-label">الكاشير</div></button>
+    <button class="tab-btn" data-link="invoices.html">🧾<div class="tab-label">الطلاب المشتركين</div></button>
+    <button class="tab-btn" data-link="unsubscribed_students.html">🧍‍♂️<div class="tab-label">فواتير فردية</div></button>
+    <button class="tab-btn" data-link="subscriptions.html">💳<div class="tab-label">الاشتراكات</div></button>
+    <button class="tab-btn" data-link="users.html">👤<div class="tab-label">المستخدمين</div></button>
+    <button class="tab-btn active" data-link="reports.html">📊<div class="tab-label">التقارير</div></button>
+    <button class="tab-btn" data-link="expenses.html">💸<div class="tab-label">المصروفات</div></button>
+    <button class="tab-btn" data-link="settings.html">⚙️<div class="tab-label">الإعدادات</div></button>
+    <button class="tab-btn" data-link="help.html">❓<div class="tab-label">مساعدة</div></button>
+  </nav>
+  <script type="module" src="js/firebase.js"></script>
+  <script type="module" src="js/header.js"></script>
+  <script type="module" src="js/reports.js"></script>
+  <script src="https://cdn.sheetjs.com/xlsx-latest/package/dist/xlsx.full.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="js/notifications.js"></script>
+  <script>
+  function handleMobileTabs() {
+    const tabs = document.querySelector('.mobile-tabs');
+    if(window.innerWidth <= 900) {
+      tabs && (tabs.style.display = 'flex');
+    } else {
+      tabs && (tabs.style.display = 'none');
+    }
+  }
+  window.addEventListener('resize', handleMobileTabs);
+  window.addEventListener('DOMContentLoaded', handleMobileTabs);
+  if(document.querySelector('.mobile-tabs')) {
+    document.querySelectorAll('.mobile-tabs .tab-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        window.location.href = btn.getAttribute('data-link');
+      });
+    });
+  }
+</script>
+<footer style="text-align:center;font-size:13px;color:#1976d2;margin:30px 0 10px 0;font-family:Arial, sans-serif; font-weight:bold; letter-spacing:1px;"><b>Powered by Eng. Lol</b></footer>
+</body>
+
+</html>
